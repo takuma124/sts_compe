@@ -10,7 +10,7 @@ try {
     $msg = $e->getMessage();
 }
 
-$sql = "SELECT * FROM users WHERE user_id = :userid";
+$sql = "SELECT * FROM users WHERE userid = :userid";
 $stmt = $dbh->prepare($sql);
 $stmt->bindValue(':userid', $userid);
 $stmt->execute();
@@ -24,7 +24,7 @@ if (password_verify($_POST['pass'], $member['pass'])) {
     $link = '<a href="index.php">ホーム</a>';
 } else {
     $msg = 'IDもしくはパスワードが間違っています。';
-    $link = '<a href="login.php">戻る</a>';
+    $link = '<a href="login_form.php">戻る</a>';
 }
 ?>
 
