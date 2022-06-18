@@ -2,6 +2,8 @@
 # MySQL上に登録するプログラム
 import numpy as np
 import MySQLdb
+import sys
+from datetime import datetime as dm
 
 def get_sentences_score(file_path):
     scores = []
@@ -13,17 +15,22 @@ def get_sentences_score(file_path):
 
 # id, name, methodをSQLの1行に登録するなら、それを受け取れるように改良する必要あり！
 def main():
+    user_id = sys.argv[1]
+    method = sys.argv[2]
+    timestamp = dm.strptime(sys.argv[3], '%Y-%m-%d %H:%M:%S')
+    
     output = get_sentences_score('Test_data/STS.output.images.txt')
     gs = get_sentences_score('Test_data/STS.gs.images.txt')
     pearson = np.corrcoef(output, gs)[0, 1]
     
+    #ユーザーとかpasswd,db変更する必要あり
     connection = MySQLdb.connect(
         host='localhost',
         user='root',
         passwd='root',
         db='first_test_db')
     cursor = connection.cursor()
-    cursor.execute(f'INSERT INTO users VALUES ({id}, {name}, {method}, {pearson})')
+    cursor.execute(f'INSERT INTO sts VALUES ("{user_id}", "{method}", "{timestamp}", "{pearson}")')
     connection.commit()
     connection.close()
 
