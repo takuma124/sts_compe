@@ -19,7 +19,7 @@ $stmt = $dbh->prepare($sql);
 $stmt->bindValue(':userid', $userid);
 $stmt->execute();
 $member = $stmt->fetch();
-if ($member['userid'] === $id) {
+if ($member['userid'] === $userid) {
     $msg = '同じIDが存在します。';
     $link = '<a href="signup.php">戻る</a>';
 } else {
