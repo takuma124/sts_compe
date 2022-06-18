@@ -32,7 +32,7 @@ if ($member['userid'] === $id) {
     $stmt->execute();
     $msg = '会員登録が完了しました';
     $link = '<a href="login.php">ログインページ</a>';
-    $print($msg)
+    print($msg);
 }
 ?>
 
