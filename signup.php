@@ -7,7 +7,7 @@
 </div>
 <div>
     <label>ID：<label>
-    <input type="text" name="user_id" required>
+    <input type="text" name="userid" required>
 </div>
 <div>
     <label>PW：<label>
