@@ -1,6 +1,6 @@
 <h1>新規ユーザ登録</h1>
 <!-- 処理を行う宛先を指定 -->
-<form action="register.php" method="post">
+<form action="register2.php" method="post">
 <div>
     <label>名前：<label>
     <input type="text" name="name" required>
