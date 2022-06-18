@@ -3,7 +3,7 @@ $name = $_POST['name'];
 $userid = $_POST['userid'];
 $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-$mysqli = new mysqli('localhost', 'testuser', 'testuser', 'stscompe');
+$mysqli = new mysqli('localhost', 'test', 'testuser', 'stscompe');
 if ($mysqli->connect_error) {
     echo $mysqli->connect_error;
     exit();
