@@ -1,5 +1,7 @@
 # このプログラムはTest_data/STS.output.images.txtとTest_data/STS.gs.image.txtのピアソン相関を求めて、
 # MySQL上に登録するプログラム
+
+#使い方は：python pearson.py "ユーザーid" "手法名" "タイムスタンプ(YYYY-mm-dd HH:MM:SS)"
 import numpy as np
 import MySQLdb
 import sys
