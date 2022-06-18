@@ -22,7 +22,6 @@ $member = $stmt->fetch();
 if ($member['userid'] === $id) {
     $msg = '同じIDが存在します。';
     $link = '<a href="signup.php">戻る</a>';
-    print($msg);
 } else {
     $sql = "INSERT INTO users(name, userid, pass) VALUES (:name, :userid, :pass)";
     $stmt = $dbh->prepare($sql);
@@ -32,7 +31,6 @@ if ($member['userid'] === $id) {
     $stmt->execute();
     $msg = '会員登録が完了しました';
     $link = '<a href="login.php">ログインページ</a>';
-    print($msg);
 }
 ?>
 
