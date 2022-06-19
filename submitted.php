@@ -12,7 +12,6 @@ $userid = $_SESSION['userid'];
 $tempfile = $_FILES['code']['tmp_name'];
 $filename = $_FILES['code']['name'];
 $filepath = "./program/${num}.py";
-$file_name = $_FILES[''];
 $method = $_POST['method'];
 $timestamp = date("Y-m-d H:i:s", time());
 $msg = 'default';
