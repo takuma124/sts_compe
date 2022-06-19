@@ -28,11 +28,11 @@ def main():
     #ユーザーとかpasswd,db変更する必要あり
     connection = MySQLdb.connect(
         host='localhost',
-        user='root',
-        passwd='root',
-        db='first_test_db')
+        user='test',
+        passwd='testuser',
+        db='stscompe')
     cursor = connection.cursor()
-    cursor.execute(f'INSERT INTO sts VALUES ("{user_id}", "{method}", "{timestamp}", "{pearson}")')
+    cursor.execute(f'INSERT INTO score VALUES ("{user_id}", "{method}", "{timestamp}", "{pearson}")')
     connection.commit()
     connection.close()
 
