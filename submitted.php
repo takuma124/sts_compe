@@ -1,14 +1,13 @@
 <?php
-$already_files = []
+$num = 0;
 if (is_dir("./program")) {
     if $dh = opendir("./program") {
         while (($file = readdir($dh)) !== false) {
-            array_push($already_files, $file)
+            $num++;
         }
-        closedir($dh)
+        closedir($dh);
     }
 }
-$num = count($already_files)
 $userid = $_SESSION['userid'];
 $tempfile = $_FILES['code']['tmp_name'];
 $filename = $_FILES['code']['name'];
@@ -24,9 +23,9 @@ if (is_uploaded_file($tempfile)) {
     if (move_uploaded_file($tempfile, $filepath)) {
         $msg = "${filename}を提出しました！";
         $command = "python3 ${file_path}";
-        exec($command)
+        exec($command);
         $command = "python3 pearson.py ${userid} ${method} ${timestamp}";
-        exec($command)
+        exec($command);
     } else {
         $msg = "${filename}を提出できませんでした...";
     }
