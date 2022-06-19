@@ -35,7 +35,7 @@ $year = 2022;
 
 		foreach($member as $key => $value){
 			foreach($value as $k => $userid){
-				$sql = "SELECT * FROM score WHERE userid = $userid ORDER BY score DESC LIMIT 1";
+				$sql = "SELECT * FROM score WHERE userid = '$userid' ORDER BY score DESC LIMIT 1";
 				$stmt = $dbh->prepare($sql);
 				$stmt->execute();
 				$result = $stmt->fetch();
