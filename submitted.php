@@ -21,11 +21,11 @@ $link = '<a href="index.php">ホーム</a>';
 #fnameはinputタグにつけられた名前に変更する - > codeに変更済み
 if (is_uploaded_file($tempfile)) {
     if (move_uploaded_file($tempfile, $filepath)) {
-        $msg = "${filename}を提出しました！";
         $command = "python3 ${file_path}";
         exec($command);
         $command = "python3 pearson.py ${userid} ${method} ${timestamp}";
         exec($command);
+        $msg = "${filename}を提出しました！";
     } else {
         $msg = "${filename}を提出できませんでした...";
     }
