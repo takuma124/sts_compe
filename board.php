@@ -29,21 +29,21 @@ $year = 2022;
 
 		$sql = "SELECT userid FROM users";
 		$stmt = $dbh->prepare($sql);
-		// $stmt->bindValue(':userid', $userid);
 		$stmt->execute();
-		$member = $stmt->fetch();
-		// $num = count($member['userid']);
+		$member = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		$scores = array();
 
-		foreach($member['userid'] as $userid){
-			$sql = "SELECT * FROM score WHERE userid = $userid ORDER BY pearson DESC LIMIT 1";
-			$stmt = $dbh->prepare($sql);
-			$stmt->execute();
-			$result = $stmt->fetch();
-			if($result === false){
-				continue;
-			}else{
-				$scores[result['userid']] = $result['pearson'];
+		foreach($member as $key => $value){
+			foreach($value as $k => $userid){
+				$sql = "SELECT * FROM score WHERE userid = $userid ORDER BY score DESC LIMIT 1";
+				$stmt = $dbh->prepare($sql);
+				$stmt->execute();
+				$result = $stmt->fetch();
+				if($result === false){
+					continue;
+				}else{
+					$scores[$result['userid']] = $result['score'];
+				}
 			}
 		}
 		arsort($scores);
